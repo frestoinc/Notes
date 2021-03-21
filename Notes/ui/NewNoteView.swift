@@ -23,19 +23,18 @@ struct NewNoteView: View {
                         .stroke(Color(UIColor.systemGray.cgColor), lineWidth: 0.25)).padding(.horizontal)
             Button(
                 action: {
-                    viewModel.addNote()
                     self.newItem = false
                 },
-                label: { Text("Save") }
-            )
-            .padding()
+                label: { Text("Add Note") }
+            ).padding()
         }.navigationBarTitle("New Note")
     }
 }
 
-
-//struct newNotevoew_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewNoteView()
-//    }
-//}
+#if DEBUG
+struct NewNoteView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewNoteView(newItem: .constant(false))
+    }
+}
+#endif

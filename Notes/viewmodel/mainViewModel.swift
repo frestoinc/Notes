@@ -16,13 +16,7 @@ class MainViewModel : ObservableObject {
     private var cancellables = Set<AnyCancellable>()
         
     init() {
-        repository.$notes.map { notes in
-            notes.map { note in
-                NoteViewModel(note: note)
-            }
-        }
-        .assign(to: \.noteVm, on: self)
-        .store(in: &cancellables)
+        loadData()
     }
         
     func deleteNote(at index: IndexSet) {
@@ -30,5 +24,16 @@ class MainViewModel : ObservableObject {
             viewModels.forEach { row in
                 repository.deleteNote(entity: row.note)
         }
+    }
+    
+    func loadData() {
+        print("im called")
+        repository.$notes.map { notes in
+            notes.map { note in
+                NoteViewModel(note: note)
+            }
+        }
+        .assign(to: \.noteVm, on: self)
+        .store(in: &cancellables)
     }
 }

@@ -28,6 +28,7 @@ class Repository : ListRepository, IRepository, ObservableObject {
     func addNote(entity: NoteEntity) {
         self.notes.append(entity)
         saveNotes()
+        loadAllNotes()
     }
     
     func deleteNote(entity: NoteEntity) {
