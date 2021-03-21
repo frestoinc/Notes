@@ -10,16 +10,12 @@ import Resolver
 import Combine
 
 class NoteViewModel : ObservableObject, Identifiable {
-    @Injected var repository : Repository
+    @Injected private var repository : Repository
     
     @Published var note : NoteEntity
     
-    private var cancellables = Set<AnyCancellable>()
-    
     init(note: NoteEntity) {
         self.note = note
-        print("snote:\(self.note)")
-        print("note:\(note)")
     }
     
     func update() {

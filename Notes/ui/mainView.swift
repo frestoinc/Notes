@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel = MainViewModel()
-    @State var newItem : Bool = false
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -22,7 +22,7 @@ struct MainView: View {
                 }.listStyle(PlainListStyle())
             }
             .navigationBarTitle(Text("Notes"), displayMode: .inline)
-            .navigationBarItems(trailing: NavigationButton(newItem: $newItem))
+            .navigationBarItems(trailing: NavigationButton())
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
@@ -30,6 +30,7 @@ struct MainView: View {
 struct NoteDetail : View {
     @ObservedObject var noteVm : NoteViewModel
     @State var itemEdited : Bool = false
+    
     var body: some View {
         ZStack(alignment: .leading, content: {
             NavigationLink(
@@ -37,6 +38,7 @@ struct NoteDetail : View {
                 isActive: self.$itemEdited,
                 label: { EmptyView() }
             )
+            .isDetailLink(false)
             .buttonStyle(PlainButtonStyle())
             .opacity(0.0)
             HStack {
@@ -48,13 +50,14 @@ struct NoteDetail : View {
 }
 
 struct NavigationButton : View {
-    @Binding var newItem : Bool
+    @State var newItem : Bool = false
+    
     var body: some View {
         NavigationLink(
             destination: NewNoteView(newItem: self.$newItem),
             isActive: self.$newItem,
             label: {Image(systemName: "plus").resizable()}
-        ).isDetailLink(false)
+        )
     }
 }
 

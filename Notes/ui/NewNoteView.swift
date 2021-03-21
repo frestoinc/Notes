@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewNoteView: View {
     @ObservedObject var viewModel = NewNoteViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @Binding var newItem : Bool
     
     var body: some View {
@@ -23,18 +24,21 @@ struct NewNoteView: View {
                         .stroke(Color(UIColor.systemGray.cgColor), lineWidth: 0.25)).padding(.horizontal)
             Button(
                 action: {
+                    self.viewModel.addNote()
                     self.newItem = false
+                    presentationMode.wrappedValue.dismiss()
                 },
                 label: { Text("Add Note") }
             ).padding()
         }.navigationBarTitle("New Note")
+        .onDisappear {viewModel.reset()}
     }
 }
 
 #if DEBUG
 struct NewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        NewNoteView(newItem: .constant(false))
+        NewNoteView(viewModel: NewNoteViewModel(), newItem: .constant(false))
     }
 }
 #endif

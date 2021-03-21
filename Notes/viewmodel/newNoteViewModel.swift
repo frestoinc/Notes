@@ -10,17 +10,20 @@ import Resolver
 import Combine
 
 class NewNoteViewModel : ObservableObject, Identifiable {
-    @Injected var repository : Repository
+    @Injected private var repository : Repository
     
     @Published var title : String = ""
     @Published var content : String = ""
     
-    init() {
-        print("title:\(title)")
-        print("content:\(content)")
+    func reset() {
+        self.title = ""
+        self.content = ""
     }
     
     func addNote() {
+        if (title.isEmpty || content.isEmpty) {
+            return
+        }
         repository.addNote(entity: NoteEntity(id: UUID().uuidString, title: title.isEmpty ? "New Note" : title, content: content))
     }
 }

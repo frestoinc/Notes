@@ -10,14 +10,10 @@ import Resolver
 import Combine
 
 class MainViewModel : ObservableObject {
-    @Published var repository : Repository = Resolver.resolve()
+    @Published private var repository : Repository = Resolver.resolve()
     @Published var noteVm = [NoteViewModel]()
 
     private var cancellables = Set<AnyCancellable>()
-        
-    init() {
-        loadData()
-    }
         
     func deleteNote(at index: IndexSet) {
         let viewModels = index.lazy.map { self.noteVm[$0] }
@@ -27,7 +23,6 @@ class MainViewModel : ObservableObject {
     }
     
     func loadData() {
-        print("im called")
         repository.$notes.map { notes in
             notes.map { note in
                 NoteViewModel(note: note)
