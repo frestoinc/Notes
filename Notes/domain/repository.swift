@@ -39,7 +39,7 @@ class Repository : ListRepository, IRepository, ObservableObject {
     
     func editNote(entity: NoteEntity) {
         if let i = self.notes.firstIndex(where: { $0.id == entity.id }) {
-          self.notes[i] = entity
+            self.notes[i] = entity
             saveNotes()
         } else {
             addNote(entity: entity)

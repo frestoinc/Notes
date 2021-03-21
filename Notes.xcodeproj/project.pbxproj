@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,8 @@
 		B35519312606D65600FE95B2 /* noteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35519302606D65600FE95B2 /* noteViewModel.swift */; };
 		B35519342606D67E00FE95B2 /* newNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35519332606D67E00FE95B2 /* newNoteViewModel.swift */; };
 		B35519372606D69F00FE95B2 /* noteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35519362606D69F00FE95B2 /* noteView.swift */; };
-		B355193B2606D6ED00FE95B2 /* NewNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355193A2606D6ED00FE95B2 /* NewNoteView.swift */; };
+		B355193B2606D6ED00FE95B2 /* newNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355193A2606D6ED00FE95B2 /* newNoteView.swift */; };
+		B35519432606D80C00FE95B2 /* NotesApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35519422606D80C00FE95B2 /* NotesApp+Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,8 @@
 		B35519302606D65600FE95B2 /* noteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteViewModel.swift; sourceTree = "<group>"; };
 		B35519332606D67E00FE95B2 /* newNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newNoteViewModel.swift; sourceTree = "<group>"; };
 		B35519362606D69F00FE95B2 /* noteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteView.swift; sourceTree = "<group>"; };
-		B355193A2606D6ED00FE95B2 /* NewNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteView.swift; sourceTree = "<group>"; };
+		B355193A2606D6ED00FE95B2 /* newNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newNoteView.swift; sourceTree = "<group>"; };
+		B35519422606D80C00FE95B2 /* NotesApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesApp+Injection.swift"; sourceTree = "<group>"; };
 		BAB7B06ECA78C0D8E39A1A58 /* Pods-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.release.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.release.xcconfig"; sourceTree = "<group>"; };
 		BD3232A2797A7E2ABAEAA173 /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B35519102606D52800FE95B2 /* NotesApp.swift */,
+				B35519422606D80C00FE95B2 /* NotesApp+Injection.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -124,7 +127,7 @@
 			children = (
 				B35519122606D52800FE95B2 /* mainView.swift */,
 				B35519362606D69F00FE95B2 /* noteView.swift */,
-				B355193A2606D6ED00FE95B2 /* NewNoteView.swift */,
+				B355193A2606D6ED00FE95B2 /* newNoteView.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -151,7 +154,6 @@
 				BD3232A2797A7E2ABAEAA173 /* Pods-Notes.debug.xcconfig */,
 				BAB7B06ECA78C0D8E39A1A58 /* Pods-Notes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -275,7 +277,8 @@
 				B35519272606D5C900FE95B2 /* note.swift in Sources */,
 				B35519112606D52800FE95B2 /* NotesApp.swift in Sources */,
 				B35519312606D65600FE95B2 /* noteViewModel.swift in Sources */,
-				B355193B2606D6ED00FE95B2 /* NewNoteView.swift in Sources */,
+				B35519432606D80C00FE95B2 /* NotesApp+Injection.swift in Sources */,
+				B355193B2606D6ED00FE95B2 /* newNoteView.swift in Sources */,
 				B355192A2606D5EF00FE95B2 /* repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

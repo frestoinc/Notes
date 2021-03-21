@@ -34,7 +34,7 @@ struct NoteView: View {
                 },
                 label: { Text("Save") }
             ).padding()
-        }
+        }.navigationBarTitle("Edit Note")
     }
 }
 

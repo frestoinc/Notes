@@ -8,8 +8,8 @@
 import Foundation
 
 
-struct NoteEntity: Codable {
-    let id: String
+struct NoteEntity: Codable, Identifiable{
+    var id: String
     var title : String
     var content : String
 }

@@ -18,6 +18,8 @@ class NoteViewModel : ObservableObject, Identifiable {
     
     init(note: NoteEntity) {
         self.note = note
+        print("snote:\(self.note)")
+        print("note:\(note)")
     }
     
     func update() {

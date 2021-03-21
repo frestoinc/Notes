@@ -15,6 +15,11 @@ class NewNoteViewModel : ObservableObject, Identifiable {
     @Published var title : String = ""
     @Published var content : String = ""
     
+    init() {
+        print("title:\(title)")
+        print("content:\(content)")
+    }
+    
     func addNote() {
         repository.addNote(entity: NoteEntity(id: UUID().uuidString, title: title.isEmpty ? "New Note" : title, content: content))
     }

@@ -10,17 +10,20 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel = MainViewModel()
     @State var itemEdited : Bool = false
+    @State var newItem : Bool = false
     var body: some View {
         NavigationView {
-            List{
-                ForEach(viewModel.noteVm) { noteVm in
-                    NoteDetail(noteVm: noteVm, itemEdited: self.$itemEdited)
-                }.onDelete{ index in
-                    viewModel.deleteNote(at: index)
-                }
-            }.listStyle(PlainListStyle())
+            VStack(alignment: .leading) {
+                List{
+                    ForEach(viewModel.noteVm) { noteVm in
+                        NoteDetail(noteVm: noteVm, itemEdited: self.$itemEdited)
+                    }.onDelete{ index in
+                        viewModel.deleteNote(at: index)
+                    }
+                }.listStyle(PlainListStyle())
+            }
             .navigationBarTitle(Text("Notes"), displayMode: .inline)
-            .navigationBarItems(trailing: NavigationButton(itemEdited: self.$itemEdited))
+            .navigationBarItems(trailing: NavigationButton(newItem: self.$newItem))
         }
     }
 }
@@ -43,16 +46,15 @@ struct NoteDetail : View {
 }
 
 struct NavigationButton : View {
-    @ObservedObject var viewModel = NewNoteViewModel()
-    @Binding var itemEdited : Bool
+    @Binding var newItem : Bool
     var body: some View {
         VStack {
             NavigationLink(
-                destination: NewNoteView(viewmodel: viewModel, itemEdited: self.$itemEdited), isActive: self.$itemEdited) {
+                destination: NewNoteView(newItem: self.$newItem), isActive: self.$newItem) {
                 EmptyView()
             }
             Button(
-                action: { self.itemEdited = true },
+                action: { self.newItem = true },
                 label: { Image(systemName: "plus").resizable() }
             )
         }
