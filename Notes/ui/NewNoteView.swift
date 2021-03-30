@@ -25,7 +25,7 @@ struct NewNoteView: View {
             Button(
                 action: {
                     self.viewModel.addNote()
-                    self.newItem = false
+                    self.newItem = false //doesnt work, not sure why. and since view is not destroyed, data is persisted.
                     presentationMode.wrappedValue.dismiss()
                 },
                 label: { Text("Add Note") }

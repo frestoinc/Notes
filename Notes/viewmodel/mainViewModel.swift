@@ -14,6 +14,10 @@ class MainViewModel : ObservableObject {
     @Published var noteVm = [NoteViewModel]()
 
     private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        loadData()
+    }
         
     func deleteNote(at index: IndexSet) {
         let viewModels = index.lazy.map { self.noteVm[$0] }

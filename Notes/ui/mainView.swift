@@ -19,7 +19,8 @@ struct MainView: View {
                     }.onDelete{ index in
                         viewModel.deleteNote(at: index)
                     }
-                }.listStyle(PlainListStyle())
+                }
+                .listStyle(PlainListStyle())
             }
             .navigationBarTitle(Text("Notes"), displayMode: .inline)
             .navigationBarItems(trailing: NavigationButton())
